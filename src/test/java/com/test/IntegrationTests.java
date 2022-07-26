@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import com.configuration.BaseTest;
 import com.keywords.UIKeywords;
 import com.pages.ContactSalesPage;
+import com.pages.DashboardPage;
 import com.pages.JoinMeetingPage;
 import com.pages.SignUpPage;
 import com.pages.SigninPage;
@@ -80,5 +81,27 @@ public class IntegrationTests extends BaseTest {
 		jp.clickOnJOinM2();
 
 	}
+	@Test
+	public static  void m6() throws IOException {
+		
+		WelcomePage wp = PageFactory.initElements(UIKeywords.driver, WelcomePage.class);
+		wp.clickOnSigninLnk();
+		String username = PropertiesFile.getValue("username");
+		SigninPage sp = PageFactory.initElements(UIKeywords.driver, SigninPage.class);
+		sp.enterUsername(username);
+		String password = PropertiesFile.getValue("password");
+		sp.enterPassword(password);
+		sp.clickOnSignButton();
+		
+		
+		DashboardPage dp = PageFactory.initElements(UIKeywords.driver,DashboardPage.class);
+		String id = PropertiesFile.getValue("MeetingID");
+		dp.enterMeetingId(id);
+		dp.ToLnk();
+		dp.ClickToLink();
+		
+		
+	}
+	
 
 }

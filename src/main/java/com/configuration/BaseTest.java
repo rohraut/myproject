@@ -18,7 +18,7 @@ public class BaseTest {
 		
 
 	}
-	@AfterMethod
+	//@AfterMethod
 	public static void closeBrowser() {
 		UIKeywords.closeBrowser();
 

@@ -5,9 +5,8 @@
     <classes>
       <class name="com.test.IntegrationTests">
         <methods>
-          <include name="closeBrowser"/>
-          <include name="m4"/>
           <include name="openBrowerPlusURL"/>
+          <include name="m6"/>
         </methods>
       </class> <!-- com.test.IntegrationTests -->
     </classes>
