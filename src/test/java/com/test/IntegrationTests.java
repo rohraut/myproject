@@ -97,10 +97,42 @@ public class IntegrationTests extends BaseTest {
 		DashboardPage dp = PageFactory.initElements(UIKeywords.driver,DashboardPage.class);
 		String id = PropertiesFile.getValue("MeetingID");
 		dp.enterMeetingId(id);
-		dp.ToLnk();
+		dp.FromLnk();
 		dp.ClickToLink();
 		
 		
+	}
+	@Test
+	public static void JoinMeetingModule() throws IOException {
+		
+		WelcomePage wp = PageFactory.initElements(UIKeywords.driver, WelcomePage.class);
+		wp.clickOnSigninLnk();
+		String username = PropertiesFile.getValue("username");
+		SigninPage sp = PageFactory.initElements(UIKeywords.driver, SigninPage.class);
+		sp.enterUsername(username);
+		String password = PropertiesFile.getValue("password");
+		sp.enterPassword(password);
+		sp.clickOnSignButton();
+		
+		
+		DashboardPage dp = PageFactory.initElements(UIKeywords.driver,DashboardPage.class);
+		String id = PropertiesFile.getValue("MeetingID");
+		dp.enterMeetingId(id);
+		dp.FromLnk();
+		dp.ClickToLink();
+		String topic = PropertiesFile.getValue("topic");
+		dp.enterTopic(topic);
+		String description = PropertiesFile.getValue("description");
+	     dp.enterDescription(description);
+	    String name =  PropertiesFile.getValue("invites");
+	     dp.enterInviteeName(name);
+	     dp.setHours();
+	     dp.setMinutes();
+	     dp.clickOnVideoLnk();
+	     //dp.clickOnMeetingPasscode();
+	     dp.clickOnScheduleMeeting();
+		
+
 	}
 	
 
